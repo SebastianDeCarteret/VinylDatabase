@@ -12,9 +12,7 @@ db.Database.EnsureDeleted();
 db.Database.EnsureCreated();
 db.SaveChanges();
 
-var tempData = SeedData.RunSeed();
-
-foreach (var item in tempData)
+foreach (var item in SeedData.SeedDataList)
 {
     await db.Vinyls.AddAsync(item);
     db.SaveChanges();
@@ -26,5 +24,13 @@ foreach (var vinyl in db.Vinyls)
     foreach (var track in vinyl.Tracks)
     {
         Console.WriteLine($"Track: {track.Title}");
+        Console.WriteLine($"Track: {TimeFormatter(track.Length)}");
     }
+}
+
+// note: not to be used in api
+string TimeFormatter(float time)
+{
+    string[] slicedTime = time.ToString().Split(".");
+    return $"{slicedTime[0]}m {slicedTime[1]}s";
 }
