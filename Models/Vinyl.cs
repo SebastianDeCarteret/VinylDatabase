@@ -11,6 +11,5 @@
         public DateTime ReleaseDate { get; set; }
         public string ImageLink { get; set; }
         public List<Track> Tracks { get; set; }
-
     }
 }

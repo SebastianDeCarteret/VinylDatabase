@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VinylDatabase.Models;
 
@@ -10,9 +11,11 @@ using VinylDatabase.Models;
 namespace VinylDatabase.Migrations
 {
     [DbContext(typeof(VinylDbContext))]
-    partial class VinylDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231204114440_UpdatesModels")]
+    partial class UpdatesModels
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.0");
